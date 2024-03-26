@@ -660,10 +660,3 @@ export class GoldenSun {
         }
     }
 }
-
-var golden_sun = new GoldenSun();
-
-//debugging porpouses
-(window as any).GoldenSun = golden_sun;
-//exposing FieldAbilities for custom psynergies creation.
-(window as any).GoldenSun.FieldAbilities = FieldAbilities;

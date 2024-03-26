@@ -3,11 +3,13 @@
 package-lock.json
 
 ## Dynamic/Unversionable
+.vite/
 code_docs/
 dist/
 logs/
 deploy/
 node_modules/
+out/
 *.bak
 *.db
 *.log

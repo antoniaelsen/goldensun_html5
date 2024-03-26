@@ -8,19 +8,19 @@
         // Library versions
         "moduleResolution": "node",
         "module": "commonjs",
-        "target": "ES2017",
+        "target": "ES5",
 
         // Types
         "lib": [
             "DOM",
             "ESNext",
+            "ES2021.String"
         ],
         "typeRoots": [
             "types/p2.d.ts",
             "types/particlestorm.d.ts",
             "types/phaser.d.ts",
-            "types/pixi.d.ts",
-            "types/codemirror.d.ts"
+            "types/pixi.d.ts"
         ],
 
         // Misc
@@ -38,7 +38,7 @@
         "removeComments": true,
 
         // Maps
-        "sourceMap": true,
+        "sourceMap": false,
         // "mapRoot": "debug/maps",
         // "sourceRoot": "debug/src",
 
@@ -46,9 +46,11 @@
         "allowUnreachableCode": true, // Isn't a compilation or typing error; should be handled by a dedicated linter.
         "alwaysStrict": true,
         "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
         "noImplicitAny": false, //TODO: Make `true` (see issue #401)
         "noImplicitThis": true,
         "noImplicitReturns": true,
+        "skipLibCheck": true,
         "strict": true,
         "strictBindCallApply": true,
         "strictFunctionTypes": false, //TODO: Make `true` (see issue #401)

@@ -19,46 +19,53 @@
     "lib": "./base"
   },
   "type": "commonjs",
-  "main": "./electron/main.js",
+  "main": ".vite/build/main.js",
   "scripts": {
-    "start": "npx webpack-dev-server --config webpack.config.dev.js",
-    "start-desktop": "npm run build_prod && npx electron ./electron/main.js",
-    "start-desktop-dev": "npm run build && npx electron ./electron/main.js dev",
-    "build": "npx webpack --config webpack.config.dev.js",
-    "build_prod": "npx webpack --env.production --config webpack.config.prod.js",
-    "deploy": "npm run build_prod && node scripts/generate_deploy.js",
+    "start": "vite",
+    "start-desktop": "NODE_ENV=production electron-forge start",
+    "start-desktop-dev": "electron-forge start",
+    "build": "tsc && vite build",
+    "deploy": "electron-forge package",
     "format-check": "npx prettier --check \"base/**/*.ts\"",
     "format": "npx prettier --write \"base/**/*.ts\"",
     "docs": "node scripts/generate_docs.js",
-    "postinstall": "npx husky install && npm dedupe",
+    "_postinstall": "npx husky install && npm dedupe",
     "prepublish": "npx pinst --disable",
-    "postpublish": "npx pinst --enable"
+    "postpublish": "npx pinst --enable",
+    "preview": "vite preview"
   },
   "engines": {
-    "npm": "^7"
+    "npm": "^8"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^7.3.1",
+    "@electron-forge/maker-deb": "^7.3.1",
+    "@electron-forge/maker-rpm": "^7.3.1",
+    "@electron-forge/maker-squirrel": "^7.3.1",
+    "@electron-forge/maker-zip": "^7.3.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.3.1",
+    "@electron-forge/plugin-fuses": "^7.2.0",
+    "@electron-forge/plugin-vite": "^7.3.1",
+    "@electron/fuses": "^1.7.0",
     "@types/lodash": "~4.14",
     "@types/mathjs": "~6.0",
-    "electron": "4.2.12",
-    "electron-packager": "~16.0.0",
+    "electron": "29.1.5",
     "husky": "^5",
     "pinst": "~2.1",
     "prettier": "~2.6",
     "ts-loader": "~8.3",
     "tslib": "~2.4.0",
     "typedoc": "~0.22",
-    "typescript": "~4.6",
-    "webpack": "~4.46",
-    "webpack-cli": "^3",
-    "webpack-dev-server": "~3.11",
-    "webpack-merge": "~5.8.0"
+    "typescript": "~4.6"
   },
   "dependencies": {
     "@turf/turf": "^6",
     "core-js": "~3.25.5",
+    "electron-squirrel-startup": "^1.0.0",
     "lodash": "^4",
     "mathjs": "~9.5",
-    "rxjs": "~6.6"
+    "rxjs": "~6.6",
+    "ts-node": "~10.9.2",
+    "vite": "~5.2.6"
   }
 }
