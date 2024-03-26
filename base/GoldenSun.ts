@@ -168,9 +168,10 @@ export class GoldenSun {
      * If it's running under electron's engine, initializes it.
      */
     private init_electron() {
-        this.electron_app = (window as any).require ?? false;
+        this.electron_app = navigator.userAgent.indexOf("Electron") >= 0;
+
         if (this.electron_app) {
-            this.ipcRenderer = (window as any).require("electron").ipcRenderer;
+            this.ipcRenderer = (window as any).ipc;
         }
     }
 
@@ -307,7 +308,7 @@ export class GoldenSun {
         height = this.ignore_system_scaling ? (height * 1) / window.devicePixelRatio : height;
         if (this.ipcRenderer) {
             width = this.ignore_system_scaling ? (width * 1) / window.devicePixelRatio : width;
-            this.ipcRenderer.send("resize-window", width, height);
+            this.ipcRenderer.resize_window(width, height);
         } else {
             document.getElementById("game").style.height = `${height}px`;
         }

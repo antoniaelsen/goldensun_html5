@@ -23,7 +23,7 @@ function createWindow() {
             spellcheck: false,
             devTools: is_dev_env ? true : false,
             backgroundThrottling: false,
-            contextIsolation: false,
+            contextIsolation: true,
             disableDialogs: true,
             autoplayPolicy: "no-user-gesture-required",
             enableWebSQL: false,
