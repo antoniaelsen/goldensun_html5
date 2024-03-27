@@ -17,7 +17,7 @@ function createWindow() {
         autoHideMenuBar: true,
         maximizable: false,
         title: "Golden Sun Engine - HTML5",
-        icon: path.join(__dirname, "../static/favicon.ico"),
+        icon: path.join(__dirname, "../public/static/favicon.ico"),
         webPreferences: {
             experimentalFeatures: true,
             spellcheck: false,

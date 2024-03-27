@@ -25,11 +25,9 @@ jobs:
         npm run format-check
         npm run docs
         mkdir _temp_
+        mv dist/* _temp_/
         mv assets/ _temp_/assets
-        mv static/ _temp_/static
-        mv dist/ _temp_/dist
         mv code_docs/ _temp_/docs
-        mv index.html _temp_/index.html
         cd _temp_
         echo 'gshtml5.org'>CNAME
         git init

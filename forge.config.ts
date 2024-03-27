@@ -20,7 +20,7 @@ const writeVersion = async (_, packageResult) => {
 const config: ForgeConfig = {
     packagerConfig: {
         asar: true,
-        icon: "static/favicon.ico",
+        icon: "public/static/favicon.ico",
         ignore: ["index.html"],
         name: "gshtml5",
         executableName: "gshtml5",

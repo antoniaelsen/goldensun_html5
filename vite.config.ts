@@ -5,6 +5,8 @@ const is_dev_env = process.env.NODE_ENV !== "production";
 
 export default defineConfig({
     build: {
+        // Avoid naming conflict with existing 'assets' folder
+        assetsDir: "dist",
         sourcemap: is_dev_env ? "inline" : false,
     },
     server: {

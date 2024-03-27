@@ -72,7 +72,7 @@
         "./code_docs/**",
         "./electron/**",
         "./scripts/**",
-        "./static/**",
+        "./public/**",
 
         "webpack.config.common.js",
         "webpack.config.dev.js",
