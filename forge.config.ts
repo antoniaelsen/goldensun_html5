@@ -9,10 +9,11 @@ import {FuseV1Options, FuseVersion} from "@electron/fuses";
 
 import {spawnSync} from "child_process";
 
-const writeVersion = async (buildPath: string, _: string, platform: string, arch: string, __: any) => {
+const writeVersion = async (_, packageResult) => {
+    const {outputPaths} = packageResult;
+    const path = `${outputPaths[0]}/gshtml5.version`;
     const version = spawnSync('git log --format="%H" -n 1', {shell: true}).stdout.toString().trim();
     const today = new Date(Date.now()).toLocaleString();
-    const path = `${buildPath}/gshtml5.version`;
     spawnSync(`echo ${today} : ${version} > ${path}`, {shell: true});
 };
 
@@ -24,7 +25,9 @@ const config: ForgeConfig = {
         name: "gshtml5",
         executableName: "gshtml5",
         overwrite: true,
-        afterComplete: [writeVersion],
+    },
+    hooks: {
+        postPackage: writeVersion,
     },
     rebuildConfig: {},
     makers: [new MakerSquirrel({}), new MakerZIP({}, ["darwin"]), new MakerRpm({}), new MakerDeb({})],
