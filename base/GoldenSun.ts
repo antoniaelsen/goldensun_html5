@@ -184,6 +184,7 @@ export class GoldenSun {
         load_all(this.game);
 
         this.game.time.advancedTiming = true;
+        this.game.time.desiredFps = numbers.TARGET_FPS;
         this.game.stage.smoothed = false;
         this.game.camera.roundPx = true;
         this.game.renderer.renderSession.roundPixels = true;

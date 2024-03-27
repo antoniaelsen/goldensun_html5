@@ -40,7 +40,6 @@ function createWindow() {
     win.webContents.openDevTools();
 }
 
-app.commandLine.appendSwitch("limit-fps", "60");
 app.commandLine.appendSwitch("disable-gpu-vsync");
 // app.commandLine.appendSwitch('show-fps-counter');
 app.commandLine.appendSwitch("force_high_performance_gpu");
